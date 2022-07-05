@@ -6,17 +6,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <EditText
-        android:id="@+id/editTextEmail"
+        android:id="@+id/editTextEmailS"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/edit_text_bg"
+        android:drawableLeft="@drawable/ic_baseline_email_24"
         android:hint="Email"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:layout_marginBottom="20dp"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextPhone"
+        app:layout_constraintBottom_toTopOf="@+id/editTextPasswordS"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias=".5"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,11 +26,12 @@
         app:layout_constraintVertical_bias="1"/>
 
     <EditText
-        android:id="@+id/editTextPhone"
+        android:id="@+id/editTextPasswordS"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_baseline_security_24"
         android:background="@drawable/edit_text_bg"
-        android:hint="Phone Number"
+        android:hint="Passoword"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
@@ -43,41 +45,23 @@
         app:layout_constraintVertical_bias=".3"/>
 
     <EditText
-        android:id="@+id/editTextPassword"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Password"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:background="@drawable/edit_text_bg"
-        android:layout_marginTop="20dp"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias=".5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhone"
-        app:layout_constraintVertical_bias="0"
-        app:layout_constraintWidth_percent=".8" />
-
-    <EditText
         android:id="@+id/editTextConfirmPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_baseline_security_24"
         android:hint="Confirm Password"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:layout_marginTop="20dp"
         android:background="@drawable/edit_text_bg"
+        android:layout_marginTop="20dp"
         android:textSize="16sp"
-        app:layout_constraintVertical_bias="0"
-        app:layout_constraintHorizontal_bias=".5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias=".5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPasswordS"
+        app:layout_constraintVertical_bias="0"
         app:layout_constraintWidth_percent=".8" />
 
     <Button
