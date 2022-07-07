@@ -16,6 +16,12 @@
         android:theme="@style/Theme.FoodOrderingApp"
         tools:targetApi="31">
         <activity
+            android:name=".Activities.ProductDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.ProductMenuActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.HomeActivity"
             android:exported="false" />
         <activity
@@ -30,6 +36,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

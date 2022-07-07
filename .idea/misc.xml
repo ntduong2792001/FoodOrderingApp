@@ -3,6 +3,31 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Ki 7/android/FoodOrderingApp/app/src/main/res/drawable/cart_button_bg.xml" value="0.1" />
+        <entry key="..\:/Ki 7/android/FoodOrderingApp/app/src/main/res/drawable/detail_page_bg.xml" value="0.1" />
+        <entry key="..\:/Ki 7/android/FoodOrderingApp/app/src/main/res/drawable/detail_page_cart_button_bg.xml" value="0.1" />
+        <entry key="..\:/Ki 7/android/FoodOrderingApp/app/src/main/res/drawable/ic_arrow_forward_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Ki 7/android/FoodOrderingApp/app/src/main/res/drawable/ic_back.xml" value="0.1" />
+        <entry key="..\:/Ki 7/android/FoodOrderingApp/app/src/main/res/drawable/ic_cart.xml" value="0.1" />
+        <entry key="..\:/Ki 7/android/FoodOrderingApp/app/src/main/res/drawable/ic_cat_bg.xml" value="0.1" />
+        <entry key="..\:/Ki 7/android/FoodOrderingApp/app/src/main/res/drawable/ic_filter.xml" value="0.1" />
+        <entry key="..\:/Ki 7/android/FoodOrderingApp/app/src/main/res/drawable/ic_heart.xml" value="0.1" />
+        <entry key="..\:/Ki 7/android/FoodOrderingApp/app/src/main/res/drawable/ic_minus.xml" value="0.1" />
+        <entry key="..\:/Ki 7/android/FoodOrderingApp/app/src/main/res/drawable/ic_more.xml" value="0.1" />
+        <entry key="..\:/Ki 7/android/FoodOrderingApp/app/src/main/res/drawable/ic_plus.xml" value="0.1" />
+        <entry key="..\:/Ki 7/android/FoodOrderingApp/app/src/main/res/drawable/ic_search.xml" value="0.1" />
+        <entry key="..\:/Ki 7/android/FoodOrderingApp/app/src/main/res/drawable/vie_bg.xml" value="0.205" />
+        <entry key="..\:/Ki 7/android/FoodOrderingApp/app/src/main/res/font/rubik.xml" value="0.1" />
+        <entry key="..\:/Ki 7/android/FoodOrderingApp/app/src/main/res/font/rubik_bold.xml" value="0.14166666666666666" />
+        <entry key="..\:/Ki 7/android/FoodOrderingApp/app/src/main/res/font/rubik_bold_italic.xml" value="0.140625" />
+        <entry key="..\:/Ki 7/android/FoodOrderingApp/app/src/main/res/font/rubik_medium.xml" value="0.14166666666666666" />
+        <entry key="..\:/Ki 7/android/FoodOrderingApp/app/src/main/res/layout/activity_home.xml" value="0.22826086956521738" />
+        <entry key="..\:/Ki 7/android/FoodOrderingApp/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Ki 7/android/FoodOrderingApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Ki 7/android/FoodOrderingApp/app/src/main/res/layout/activity_product_details.xml" value="0.264" />
+        <entry key="..\:/Ki 7/android/FoodOrderingApp/app/src/main/res/layout/activity_product_menu.xml" value="0.264" />
+        <entry key="..\:/Ki 7/android/FoodOrderingApp/app/src/main/res/layout/category_row_item.xml" value="0.1" />
+        <entry key="..\:/Ki 7/android/FoodOrderingApp/app/src/main/res/layout/products_row_item.xml" value="0.25" />
         <entry key="..\:/Summer2022/PRM392/FoodOrderingProject/app/src/main/res/drawable/button_bg.xml" value="0.102" />
         <entry key="..\:/Summer2022/PRM392/FoodOrderingProject/app/src/main/res/drawable/edit_text_bg.xml" value="0.1125" />
         <entry key="..\:/Summer2022/PRM392/FoodOrderingProject/app/src/main/res/drawable/vie_bg.xml" value="0.1635" />

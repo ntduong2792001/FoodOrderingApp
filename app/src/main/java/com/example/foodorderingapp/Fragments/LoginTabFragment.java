@@ -16,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.foodorderingapp.Activities.HomeActivity;
+import com.example.foodorderingapp.Activities.ProductMenuActivity;
 import com.example.foodorderingapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -114,7 +115,7 @@ public class LoginTabFragment extends Fragment {
     }
 
     private  void sendUserToNextActivity(){
-        Intent intent = new Intent(context, HomeActivity.class);
+        Intent intent = new Intent(context, ProductMenuActivity.class);
         startActivity(intent);
     }
 }
