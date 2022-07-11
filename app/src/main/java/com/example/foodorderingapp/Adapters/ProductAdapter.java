@@ -1,5 +1,6 @@
 package com.example.foodorderingapp.Adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -21,36 +22,32 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     Context context;
     List<Products> productsList;
 
-
     public ProductAdapter(Context context, List<Products> productsList) {
         this.context = context;
         this.productsList = productsList;
+        System.out.println("THIS PRODUCT ADAPTER IS CALL!!!!!!!");
     }
 
     @NonNull
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
         View view = LayoutInflater.from(context).inflate(R.layout.products_row_item, parent, false);
         return new ProductViewHolder(view);
     }
 
+    @SuppressLint("RecyclerView")
     @Override
     public void onBindViewHolder(@NonNull final ProductViewHolder holder, int position) {
         holder.prodImage.setImageResource(productsList.get(position).getProductImageUrl());
         holder.prodName.setText(productsList.get(position).getProductName());
         holder.prodQty.setText("" + productsList.get(position).getProductQuantity());
-        holder.prodPrice.setText(""+productsList.get(position).getProductPrice());
+        holder.prodPrice.setText(productsList.get(position).getProductPrice() + " $");
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(context, ProductDetailsActivity.class);
-/*
-                Pair[] pairs = new Pair[1];
-                pairs[0] = new Pair<View, String>(holder.prodImage, "image");
-                ActivityOptions activityOptions = ActivityOptions.makeSceneTransitionAnimation((Activity) context, pairs);
-               */
-                context.startActivity(i/*, activityOptions.toBundle()*/);
+                i.putExtra("productId", productsList.get(position).getProductId() + "");
+                context.startActivity(i);
             }
         });
     }

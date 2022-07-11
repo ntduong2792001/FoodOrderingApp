@@ -114,7 +114,7 @@ public class LoginTabFragment extends Fragment {
         }
     }
 
-    private  void sendUserToNextActivity(){
+    private void sendUserToNextActivity(){
         Intent intent = new Intent(context, ProductMenuActivity.class);
         startActivity(intent);
     }
