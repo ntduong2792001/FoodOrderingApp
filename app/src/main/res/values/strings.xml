@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FoodOrderingApp</string>
+    <string name="forget_password_detail">Provide your account\'s email for which you want to reset your password</string>
 </resources>

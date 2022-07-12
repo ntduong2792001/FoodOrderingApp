@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.foodorderingapp.Activities.HomeActivity;
 import com.example.foodorderingapp.Activities.ProductMenuActivity;
+import com.example.foodorderingapp.Activities.ResetPasswordActivity;
 import com.example.foodorderingapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -71,6 +72,14 @@ public class LoginTabFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 PerformAuth();
+            }
+        });
+
+        forgetPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ResetPasswordActivity.class);
+                startActivity(intent);
             }
         });
 
