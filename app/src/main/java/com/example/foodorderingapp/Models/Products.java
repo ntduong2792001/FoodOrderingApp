@@ -7,6 +7,7 @@ public class Products implements Serializable {
     String productDescription;
     int productId;
     int productImageUrl;
+    String productIngredient;
     String productName;
     int productPrice;
     int productQuantity;
@@ -15,14 +16,23 @@ public class Products implements Serializable {
     public Products() {
     }
 
-    public Products(int categoryId, String productDescription, int productId, int productImageUrl, String productName, int productPrice, int productQuantity) {
+    public Products(int categoryId, String productDescription, int productId, int productImageUrl, String productIngredient, String productName, int productPrice, int productQuantity) {
         this.categoryId = categoryId;
         this.productDescription = productDescription;
         this.productId = productId;
         this.productImageUrl = productImageUrl;
+        this.productIngredient = productIngredient;
         this.productName = productName;
         this.productPrice = productPrice;
         this.productQuantity = productQuantity;
+    }
+
+    public String getProductIngredient() {
+        return productIngredient;
+    }
+
+    public void setProductIngredient(String productIngredient) {
+        this.productIngredient = productIngredient;
     }
 
     public int getCategoryId() {
@@ -88,6 +98,7 @@ public class Products implements Serializable {
                 ", productDescription='" + productDescription + '\'' +
                 ", productId=" + productId +
                 ", productImageUrl=" + productImageUrl +
+                ", productIngredient='" + productIngredient + '\'' +
                 ", productName='" + productName + '\'' +
                 ", productPrice=" + productPrice +
                 ", productQuantity=" + productQuantity +

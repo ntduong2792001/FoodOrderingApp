@@ -65,20 +65,20 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Produc
         });
     }
 
-    public ArrayList<Products> removeDuplicates(List<Products> list) {
-        Set set = new TreeSet(new Comparator() {
-            @Override
-            public int compare(Object o1, Object o2) {
-                if (((Products) o1).getProductName().equalsIgnoreCase(((Products) o2).getProductName())){
-                    return 0;
-                }
-                return 1;
-            }
-        });
-        set.addAll(list);
-        final ArrayList newList = new ArrayList(set);
-        return newList;
-    }
+//    public ArrayList<Products> removeDuplicates(List<Products> list) {
+//        Set set = new TreeSet(new Comparator() {
+//            @Override
+//            public int compare(Object o1, Object o2) {
+//                if (((Products) o1).getProductName().equalsIgnoreCase(((Products) o2).getProductName())){
+//                    return 0;
+//                }
+//                return 1;
+//            }
+//        });
+//        set.addAll(list);
+//        final ArrayList newList = new ArrayList(set);
+//        return newList;
+//    }
 
     @Override
     public int getItemCount() {

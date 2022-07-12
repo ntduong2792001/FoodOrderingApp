@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ProductDetailsActivity extends AppCompatActivity {
 
-    TextView productName, productPrice, productDescription, categoryName;
+    TextView productName, productPrice, productDescription, categoryName, productType;
     ImageView productImage, backImage;
     Products p;
     Category c;
@@ -77,11 +77,13 @@ public class ProductDetailsActivity extends AppCompatActivity {
         productPrice = findViewById(R.id.textView12);
         productImage = findViewById(R.id.imageView7);
         backImage = findViewById(R.id.imageView);
+        productType = findViewById(R.id.textView10);
 
         productDescription.setText(p.getProductDescription());
         productName.setText(p.getProductName());
         productPrice.setText(p.getProductPrice() + " $");
         productImage.setImageResource(p.getProductImageUrl());
+        productType.setText(p.getProductIngredient());
         backImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
