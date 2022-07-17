@@ -5,24 +5,28 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.foodorderingapp.R;
 
-public class HomeActivity extends AppCompatActivity {
-    Button btnUser;
+public class ProfileDetail extends AppCompatActivity {
+
+    ImageView backBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_profile_detail);
 
-
-        btnUser = findViewById(R.id.btnUser);
-        btnUser.setOnClickListener(new View.OnClickListener() {
+        backBtn = findViewById(R.id.imgBack);
+        backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this,UserActivity.class );
+                Intent intent = new Intent(ProfileDetail.this,UserActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 

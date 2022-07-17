@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FoodOrderingApp</string>
+    <string name="user_heading">Menu</string>
 </resources>
