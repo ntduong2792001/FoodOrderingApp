@@ -117,7 +117,6 @@ public class SignupTabFragment extends Fragment {
                                 }
                             }
                         });
-
                     } else {
                         progressDialog.dismiss();
                         Toast.makeText(context, "" + task.getException(), Toast.LENGTH_SHORT).show();

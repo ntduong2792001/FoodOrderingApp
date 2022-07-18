@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
     TextView email;
     Button next;
     float v = 0;
+    ImageView backButton;
 
     String emailPatter = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     ProgressDialog progressDialog;
@@ -35,6 +37,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
         email = findViewById(R.id.editTextEmailR);
         next = findViewById(R.id.buttonNext);
+        backButton = findViewById(R.id.back_button);
         progressDialog = new ProgressDialog(this);
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
@@ -54,6 +57,15 @@ public class ResetPasswordActivity extends AppCompatActivity {
                 PerformResetPass();
             }
         });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+
     }
 
     public void PerformResetPass(){
@@ -72,7 +84,6 @@ public class ResetPasswordActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<Void> task) {
                     if(task.isSuccessful()){
                         progressDialog.dismiss();
-                        Toast.makeText(ResetPasswordActivity.this, "Email sent", Toast.LENGTH_SHORT).show();
                         sendUserToNextActivity();
                     }else {
                         progressDialog.dismiss();

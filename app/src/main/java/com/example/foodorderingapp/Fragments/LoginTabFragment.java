@@ -19,11 +19,6 @@ import com.example.foodorderingapp.Activities.HomeActivity;
 import com.example.foodorderingapp.Activities.ProductMenuActivity;
 import com.example.foodorderingapp.Activities.ResetPasswordActivity;
 import com.example.foodorderingapp.R;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptionsExtension;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -44,7 +39,6 @@ public class LoginTabFragment extends Fragment {
 
     FirebaseAuth mAuth;
     FirebaseUser mUser;
-
 
 
     @Nullable
