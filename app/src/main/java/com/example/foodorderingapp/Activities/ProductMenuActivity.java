@@ -82,42 +82,7 @@ public class ProductMenuActivity extends AppCompatActivity {
             });
         } else {
             System.out.println("NO INTEND");
-//        List<Category> categoryList = new ArrayList<>();
-//        categoryList.add(new Category(4, "Drink"));
-//        categoryList.add(new Category(5, "Fries"));
-//        categoryList.add(new Category(6, "BBQ"));
-//
-//        setProductRecycler(categoryList);
-//            List<Products> productsList = new ArrayList<>();
-//            productsList.add(new Products(4, "watter is very nice", 7, R.drawable.sprite, "CHAI SPRITE 1.85L", 30, 100));
-//            productsList.add(new Products(4, "watter is very nice", 8, R.drawable.coke, "CHAI COCA 1.5L", 30, 100));
-//            productsList.add(new Products(4, "watter is very nice", 9, R.drawable.fanta, "CHAI FANTA 1.5L", 30, 100));
-//            productsList.add(new Products(6, "BBQ is very delicious", 10, R.drawable.canh_ga_bbq_kieu_my, "CÁNH GÀ BBQ KIỂU MỸ (4 MIẾNG)", 45, 100));
-//            productsList.add(new Products(6, "BBQ is very delicious", 11, R.drawable.ga_khong_xuong_bbq, "GÀ KHÔNG XƯƠNG BBQ", 45, 100));
-//            productsList.add(new Products(5, "Fries is fine", 12, R.drawable.xuc_xich_xong_khoi, "XÚC XÍCH XÔNG KHÓI ĐÚT LÒ (4 MIẾNG)", 40, 100));
-//            productsList.add(new Products(5, "Fries is fine", 13, R.drawable.khoai_tay_pho_mai, "KHOAI TÂY PHÔ MAI ĐÚT LÒ", 35, 100));
-//            productsList.add(new Products(5, "Fries is fine", 14, R.drawable.banh_mi_pho_mai, "BÁNH MÌ NƯỚNG PHÔ MAI", 35, 100));
-//            productsList.add(new Products(5, "Fries is fine", 15, R.drawable.banh_mi_bo_toi, "BÁNH MÌ NƯỚNG BƠ TỎI", 35, 100));
-//            productsList.add(new Products(3, "Bông cải xanh, búp cải tím, táo, xà lách, trứng… và sốt Salad đặc biệt", 16, R.drawable.signature_salad, "Salad Đặc Sắc", 35, 100));
-//            productsList.add(new Products(3, "Rau tươi trộn với sốt Caesar", 17, R.drawable.caesars_salad_300, "Salad Trộn Sốt Caesar", 35, 100));
-//            productsList.add(new Products(2, "Burger bò miếng lớn và phô-mai", 18, R.drawable.mcroyal_with_cheese, "Burger Bò miếng lớn phô-mai", 40, 100));
-//            productsList.add(new Products(2, "Burger 2 lớp bò, phô-mai, rau tươi và sốt Big Mac.", 19, R.drawable.bigmac, "Burger Big Mac", 45, 100));
-            //setProdItemRecycler(productsList);
 
-//            for (Products p : productsList) {
-//                DatabaseReference myRef = database.getReference("Product");
-//                myRef.child(p.getProductId() + "").setValue(p);
-//            }
-//            database.getReference("Product").child("1").child("productImageUrl").setValue(R.drawable.pizza_lap_xuong2);
-//            database.getReference("Product").child("2").child("productImageUrl").setValue(R.drawable.okonomiyaki);
-//            database.getReference("Product").child("3").child("productImageUrl").setValue(R.drawable.ocean_mania);
-//            database.getReference("Product").child("4").child("productImageUrl").setValue(R.drawable.pizzaminsea);
-//            database.getReference("Product").child("5").child("productImageUrl").setValue(R.drawable.pasta_hai_san);
-//            database.getReference("Product").child("6").child("productImageUrl").setValue(R.drawable.pasta_bo_bam);
-//        for (Category c : categoryList) {
-//            DatabaseReference myRef = database.getReference("Category");
-//            myRef.child(c.getCategoryId()+"").setValue(c);
-//        }
             DatabaseReference myRef = database.getReference("Product");
             myRef.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -134,21 +99,7 @@ public class ProductMenuActivity extends AppCompatActivity {
             });
         }
     }
-//
-//    public ArrayList<Products> removeDuplicates(List<Products> list) {
-//        Set set = new TreeSet(new Comparator() {
-//            @Override
-//            public int compare(Object o1, Object o2) {
-//                if (((Products) o1).getProductName().equalsIgnoreCase(((Products) o2).getProductName())) {
-//                    return 0;
-//                }
-//                return 1;
-//            }
-//        });
-//        set.addAll(list);
-//        final ArrayList newList = new ArrayList(set);
-//        return newList;
-//    }
+
 
     private void setProductRecycler(List<Category> categoryList) {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
