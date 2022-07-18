@@ -50,5 +50,10 @@ dependencies {
     // For example, declare the dependencies for Firebase Authentication and Cloud Firestore
     implementation 'com.google.firebase:firebase-database'
     implementation 'com.google.firebase:firebase-auth:21.0.6'
+
+    //circle image
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
     implementation 'com.google.android.gms:play-services-auth:20.2.0'
+
 }

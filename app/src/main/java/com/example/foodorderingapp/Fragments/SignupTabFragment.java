@@ -19,11 +19,13 @@ import androidx.fragment.app.Fragment;
 import com.example.foodorderingapp.Activities.HomeActivity;
 import com.example.foodorderingapp.Activities.LoginActivity;
 import com.example.foodorderingapp.R;
+import com.example.foodorderingapp.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignupTabFragment extends Fragment {
     EditText email;
@@ -88,13 +90,13 @@ public class SignupTabFragment extends Fragment {
         String passwords = pass.getText().toString();
         String confirmPasswords = confirmPass.getText().toString();
 
-        if(!emails.matches(emailPatter)){
+        if (!emails.matches(emailPatter)) {
             email.setError("Enter Correct Email");
-        }else if(passwords.isEmpty() || passwords.length() < 8){
+        } else if (passwords.isEmpty() || passwords.length() < 8) {
             pass.setError("Enter Proper Password");
-        }else if(!passwords.equals(confirmPasswords)){
+        } else if (!passwords.equals(confirmPasswords)) {
             confirmPass.setError("Password Does Not Match");
-        }else{
+        } else {
             progressDialog.setMessage("Please Wait While Signup");
             progressDialog.setTitle("Signup");
             progressDialog.setCanceledOnTouchOutside(false);
@@ -103,20 +105,29 @@ public class SignupTabFragment extends Fragment {
             mAuth.createUserWithEmailAndPassword(emails, passwords).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
-                    if(task.isSuccessful()){
+                    if (task.isSuccessful()) {
+                        User user = new User("", emails, "", "");
+                        FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    progressDialog.dismiss();
+                                    sendUserToNextActivity();
+                                    Toast.makeText(context, "Signup Successful", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+
+                    } else {
                         progressDialog.dismiss();
-                        sendUserToNextActivity();
-                        Toast.makeText(context, "Signup Successful", Toast.LENGTH_SHORT).show();
-                    }else {
-                        progressDialog.dismiss();
-                        Toast.makeText(context, ""+task.getException(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "" + task.getException(), Toast.LENGTH_SHORT).show();
                     }
                 }
             });
         }
     }
 
-    private  void sendUserToNextActivity(){
+    private void sendUserToNextActivity() {
         Intent intent = new Intent(context, HomeActivity.class);
         startActivity(intent);
     }
