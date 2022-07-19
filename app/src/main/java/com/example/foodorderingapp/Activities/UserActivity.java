@@ -18,6 +18,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.foodorderingapp.Models.User;
 import com.example.foodorderingapp.R;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -71,6 +73,7 @@ public class UserActivity extends AppCompatActivity {
         });
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
         progressDialog.show();
         FirebaseDatabase.getInstance().getReference("Users/"+user.getUid()).addValueEventListener(new ValueEventListener() {
             @Override

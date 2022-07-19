@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.foodorderingapp.Adapters.LoginAdapter;
+import com.example.foodorderingapp.Models.User;
 import com.example.foodorderingapp.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -29,6 +30,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.regex.Pattern;
 
@@ -129,8 +134,29 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            FirebaseUser user = mAuth.getCurrentUser();
+                            GoogleSignInAccount googleSignInAccount = GoogleSignIn.getLastSignedInAccount(LoginActivity.this);
+                            FirebaseDatabase.getInstance().getReference("Users").addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    boolean existedId = false;
+                                    for(DataSnapshot ds: snapshot.getChildren()){
+                                        if (ds.getKey().equals(googleSignInAccount.getId())){
+                                            existedId= true;
+                                            break;
+                                        }
+                                    }
+                                    if (!existedId){
+                                        User newUser = new User(googleSignInAccount.getDisplayName(),googleSignInAccount.getEmail(),"","");
+                                        FirebaseDatabase.getInstance().getReference("Users").child(googleSignInAccount.getId()).setValue(newUser);
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+
                             Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                             startActivity(intent);
                         } else {
