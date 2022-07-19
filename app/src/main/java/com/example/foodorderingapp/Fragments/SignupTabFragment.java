@@ -113,7 +113,6 @@ public class SignupTabFragment extends Fragment {
                                 if (task.isSuccessful()) {
                                     progressDialog.dismiss();
                                     sendUserToNextActivity();
-                                    Toast.makeText(context, "Signup Successful", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });

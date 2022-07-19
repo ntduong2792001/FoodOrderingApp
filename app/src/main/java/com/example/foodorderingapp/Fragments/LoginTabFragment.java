@@ -113,7 +113,6 @@ public class LoginTabFragment extends Fragment {
                     if(task.isSuccessful()){
                         progressDialog.dismiss();
                         sendUserToNextActivity();
-                        Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show();
                     }else {
                         progressDialog.dismiss();
                         Toast.makeText(context, ""+task.getException(), Toast.LENGTH_SHORT).show();
