@@ -19,6 +19,8 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.foodorderingapp.Models.User;
 import com.example.foodorderingapp.R;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -89,9 +91,13 @@ public class ProfileDetail extends AppCompatActivity {
 
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        GoogleSignInAccount googleSignInAccount = GoogleSignIn.getLastSignedInAccount(ProfileDetail.this);;
 
         progressDialog.show();
-        FirebaseDatabase.getInstance().getReference("Users/"+user.getUid()).addValueEventListener(new ValueEventListener() {
+
+        String id = user== null ? googleSignInAccount.getId(): user.getUid();
+        progressDialog.show();
+        FirebaseDatabase.getInstance().getReference("Users/"+id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 

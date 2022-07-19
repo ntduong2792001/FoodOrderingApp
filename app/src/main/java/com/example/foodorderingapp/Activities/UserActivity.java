@@ -73,9 +73,12 @@ public class UserActivity extends AppCompatActivity {
         });
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        GoogleSignInAccount googleSignInAccount = GoogleSignIn.getLastSignedInAccount(UserActivity.this);
 
         progressDialog.show();
-        FirebaseDatabase.getInstance().getReference("Users/"+user.getUid()).addValueEventListener(new ValueEventListener() {
+
+        String id = user== null ? googleSignInAccount.getId(): user.getUid();
+        FirebaseDatabase.getInstance().getReference("Users/"+id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
