@@ -3,6 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/PRM/Project/FoodApp/FoodOrderingApp/app/src/main/res/drawable/app_icon.xml" value="0.2555" />
+        <entry key="..\:/PRM/Project/FoodApp/FoodOrderingApp/app/src/main/res/drawable/button_bg.xml" value="0.1" />
+        <entry key="..\:/PRM/Project/FoodApp/FoodOrderingApp/app/src/main/res/drawable/ic_back.xml" value="0.1" />
+        <entry key="..\:/PRM/Project/FoodApp/FoodOrderingApp/app/src/main/res/layout/activity_home.xml" value="0.25" />
+        <entry key="..\:/PRM/Project/FoodApp/FoodOrderingApp/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/PRM/Project/FoodApp/FoodOrderingApp/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/PRM/Project/FoodApp/FoodOrderingApp/app/src/main/res/layout/activity_product_details.xml" value="0.25" />
+        <entry key="..\:/PRM/Project/FoodApp/FoodOrderingApp/app/src/main/res/layout/activity_product_menu.xml" value="0.264" />
+        <entry key="..\:/PRM/Project/FoodApp/FoodOrderingApp/app/src/main/res/layout/activity_profile_detail.xml" value="0.25" />
+        <entry key="..\:/PRM/Project/FoodApp/FoodOrderingApp/app/src/main/res/layout/activity_reset_password.xml" value="0.25" />
+        <entry key="..\:/PRM/Project/FoodApp/FoodOrderingApp/app/src/main/res/layout/activity_user.xml" value="0.25" />
+        <entry key="..\:/PRM/Project/FoodApp/FoodOrderingApp/app/src/main/res/layout/category_row_item.xml" value="0.25" />
+        <entry key="..\:/PRM/Project/FoodApp/FoodOrderingApp/app/src/main/res/layout/login_tab_fragment.xml" value="0.25" />
+        <entry key="..\:/PRM/Project/FoodApp/FoodOrderingApp/app/src/main/res/layout/products_row_item.xml" value="0.25" />
+        <entry key="..\:/PRM/Project/FoodApp/FoodOrderingApp/app/src/main/res/layout/signup_tab_fragment.xml" value="0.25" />
         <entry key="..\:/Summer2022/PRM392/FoodOrderingProject/app/src/main/res/drawable/button_bg.xml" value="0.102" />
         <entry key="..\:/Summer2022/PRM392/FoodOrderingProject/app/src/main/res/drawable/edit_text_bg.xml" value="0.1125" />
         <entry key="..\:/Summer2022/PRM392/FoodOrderingProject/app/src/main/res/drawable/vie_bg.xml" value="0.1635" />
