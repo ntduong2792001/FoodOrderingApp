@@ -23,18 +23,17 @@
         android:layout_height="102dp"
         android:layout_marginStart="64dp"
         android:layout_marginTop="104dp"
-        android:src="@drawable/img"
+        android:src="@drawable/avatar_default"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/textView10"
-        android:layout_width="86dp"
+        android:layout_width="150dp"
         android:layout_height="29dp"
         android:layout_marginStart="28dp"
         android:layout_marginTop="60dp"
-        android:text="John Doe"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -66,7 +65,7 @@
         app:srcCompat="@drawable/back" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/imgSave"
         android:layout_width="40dp"
         android:layout_height="41dp"
         android:layout_marginTop="28dp"
@@ -87,7 +86,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/changeImg"
         android:layout_width="39dp"
         android:layout_height="46dp"
         android:layout_marginStart="52dp"
@@ -127,9 +126,9 @@
                 android:layout_height="wrap_content"
                 android:clickable="false"
                 android:ems="10"
+                android:hint="Your name"
                 android:inputType="textPersonName"
-                android:paddingBottom="15dp"
-                android:text="John Doe" />
+                android:paddingBottom="15dp" />
 
         </LinearLayout>
 
@@ -155,9 +154,9 @@
                 android:layout_height="wrap_content"
                 android:clickable="false"
                 android:ems="10"
+                android:hint="Empty"
                 android:inputType="number"
-                android:paddingBottom="15dp"
-                android:text="012-3456-789" />
+                android:paddingBottom="15dp" />
 
         </LinearLayout>
 
@@ -183,38 +182,42 @@
                 android:layout_height="wrap_content"
                 android:clickable="false"
                 android:ems="10"
+                android:hint="your email"
                 android:inputType="textEmailAddress"
-                android:paddingBottom="15dp"
-                android:text="john@example.com" />
+                android:paddingBottom="15dp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:orientation="vertical"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp">
+            android:layout_margin="0dp"
+            android:background="@drawable/border_top_bottom"
+            android:orientation="horizontal"
+            android:padding="15dp">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="89dp"
+                android:layout_height="23dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/password_icon" />
 
             <TextView
-                android:id="@+id/textView12"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:paddingStart="5dp"
-                android:text="Password" />
+                android:id="@+id/textView5"
+                android:layout_width="220dp"
+                android:layout_height="23dp"
+                android:layout_weight="1"
+                android:text="Change password"
+                android:textSize="16sp" />
 
-            <EditText
-                android:id="@+id/edtPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="false"
-                android:ems="10"
-                android:inputType="textPassword"
-                android:paddingBottom="15dp"
-                android:text="................" />
-
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="23dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/arrow_forward" />
         </LinearLayout>
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
