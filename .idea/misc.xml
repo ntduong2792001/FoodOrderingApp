@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/FU/K7/Android_Project/FoodOrderingApp/app/src/main/res/drawable/check_icon.xml" value="0.2325" />
+        <entry key="..\:/FU/K7/Android_Project/FoodOrderingApp/app/src/main/res/layout/activity_home.xml" value="0.33177083333333335" />
+        <entry key="..\:/FU/K7/Android_Project/FoodOrderingApp/app/src/main/res/layout/activity_login.xml" value="0.33177083333333335" />
+        <entry key="..\:/FU/K7/Android_Project/FoodOrderingApp/app/src/main/res/layout/activity_main.xml" value="0.33177083333333335" />
+        <entry key="..\:/FU/K7/Android_Project/FoodOrderingApp/app/src/main/res/layout/activity_profile_detail.xml" value="0.33" />
+        <entry key="..\:/FU/K7/Android_Project/FoodOrderingApp/app/src/main/res/layout/activity_user.xml" value="0.33" />
+        <entry key="..\:/FU/K7/Android_Project/FoodOrderingApp/app/src/main/res/layout/login_tab_fragment.xml" value="0.33177083333333335" />
         <entry key="..\:/Summer2022/PRM392/FoodOrderingProject/app/src/main/res/drawable/button_bg.xml" value="0.102" />
         <entry key="..\:/Summer2022/PRM392/FoodOrderingProject/app/src/main/res/drawable/edit_text_bg.xml" value="0.1125" />
         <entry key="..\:/Summer2022/PRM392/FoodOrderingProject/app/src/main/res/drawable/vie_bg.xml" value="0.1635" />
@@ -11,10 +18,9 @@
         <entry key="..\:/Summer2022/PRM392/FoodOrderingProject/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/Summer2022/PRM392/FoodOrderingProject/app/src/main/res/layout/activity_product_details.xml" value="0.2441123188405797" />
         <entry key="..\:/Summer2022/PRM392/FoodOrderingProject/app/src/main/res/layout/activity_product_menu.xml" value="0.2441123188405797" />
-        <entry key="..\:/Summer2022/PRM392/FoodOrderingProject/app/src/main/res/layout/activity_reset_notification.xml" value="0.21739130434782608" />
-        <entry key="..\:/Summer2022/PRM392/FoodOrderingProject/app/src/main/res/layout/activity_reset_password.xml" value="0.264" />
+        <entry key="..\:/Summer2022/PRM392/FoodOrderingProject/app/src/main/res/layout/activity_reset_notification.xml" value="0.25" />
+        <entry key="..\:/Summer2022/PRM392/FoodOrderingProject/app/src/main/res/layout/activity_reset_password.xml" value="0.536" />
         <entry key="..\:/Summer2022/PRM392/FoodOrderingProject/app/src/main/res/layout/login_tab_fragment.xml" value="0.264" />
-        <entry key="..\:/Summer2022/PRM392/FoodOrderingProject/app/src/main/res/layout/products_row_item.xml" value="0.25" />
         <entry key="..\:/Summer2022/PRM392/FoodOrderingProject/app/src/main/res/layout/signup_tab_fragment.xml" value="0.25" />
       </map>
     </option>

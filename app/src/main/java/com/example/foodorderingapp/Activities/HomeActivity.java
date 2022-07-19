@@ -16,7 +16,6 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-
         btnUser = findViewById(R.id.btnUser);
         btnUser.setOnClickListener(new View.OnClickListener() {
             @Override

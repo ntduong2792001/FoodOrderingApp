@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
     float v = 0;
 
     private GoogleSignInClient googleSignInClient;
-    private final static int RC_SIGN_IN = 123;
+    private final static int    RC_SIGN_IN = 123;
     private FirebaseAuth mAuth;
 
     @Override

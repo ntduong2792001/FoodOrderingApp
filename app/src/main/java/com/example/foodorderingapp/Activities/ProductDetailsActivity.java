@@ -75,7 +75,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         productDescription = findViewById(R.id.textView13);
         productName = findViewById(R.id.textView11);
         productPrice = findViewById(R.id.textView12);
-        productImage = findViewById(R.id.imageView7);
+        productImage = findViewById(R.id.imgSave);
         backImage = findViewById(R.id.imageView);
         productType = findViewById(R.id.textView10);
 

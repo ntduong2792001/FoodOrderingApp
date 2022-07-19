@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -17,9 +16,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.foodorderingapp.Activities.HomeActivity;
-import com.example.foodorderingapp.Activities.LoginActivity;
 import com.example.foodorderingapp.R;
-import com.example.foodorderingapp.User;
+import com.example.foodorderingapp.Models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -105,8 +103,10 @@ public class SignupTabFragment extends Fragment {
             mAuth.createUserWithEmailAndPassword(emails, passwords).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
+                    String[] parts = emails.split("@");
+
                     if (task.isSuccessful()) {
-                        User user = new User("", emails, "", "");
+                        User user = new User(parts[0], emails, "", "");
                         FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
