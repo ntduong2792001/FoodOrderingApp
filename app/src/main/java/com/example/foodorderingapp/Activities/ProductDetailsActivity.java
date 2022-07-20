@@ -21,9 +21,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class ProductDetailsActivity extends AppCompatActivity {
 
@@ -35,6 +38,8 @@ public class ProductDetailsActivity extends AppCompatActivity {
     Category c;
     Context context;
     SharedPreferences sharedpreferences;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,17 +85,26 @@ public class ProductDetailsActivity extends AppCompatActivity {
         addToCartBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+
+
                 Bundle b = new Bundle();
                 OrderDetail od = new OrderDetail();
                 od.setProductId(p.getProductId());
                 od.setQuantity(Integer.parseInt(quantityTxt.getText().toString()));
-                ArrayList<OrderDetail> listOrderDetail = (ArrayList<OrderDetail>) b.getSerializable("cart");
-                if(listOrderDetail==null){
-                    listOrderDetail = new ArrayList<OrderDetail>();
-                }
-                listOrderDetail.add(od);
-                b.putSerializable("cart", (Serializable) listOrderDetail);
+                SharedPreferences sharedPreferences = getSharedPreferences(MainActivity.MyPREFERENCES, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                Gson gson = new Gson();
+                String s = sharedPreferences.getString("cart","");
+                ArrayList<OrderDetail> lo = gson.fromJson(s, ArrayList.class);
+                lo.add(od);
+                editor.remove("cart");
+                editor.putString("cart", gson.toJson(lo));
+                editor.commit();
+
+
+
+                Intent i = new Intent(ProductDetailsActivity.this,HomeActivity.class);
+                startActivity(i);
             }
         });
     }

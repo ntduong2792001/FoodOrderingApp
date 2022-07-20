@@ -18,6 +18,7 @@ public class UserActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
+        String test = getIntent().getStringExtra("test");
 
         editBtn = findViewById(R.id.txtEditProfile);
 
