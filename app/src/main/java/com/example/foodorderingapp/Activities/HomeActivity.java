@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import com.example.foodorderingapp.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 public class HomeActivity extends AppCompatActivity {
@@ -20,9 +22,12 @@ public class HomeActivity extends AppCompatActivity {
     TextView tvGreet; ImageView avatar;
     Button profileBtn, orderDetailBtn, foodOrderingBtn;
     private FirebaseAuth auth;
+    private DatabaseReference mDatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         setContentView(R.layout.activity_home);
         bindElements();
         bindElementToActivity();
@@ -52,6 +57,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this,UserActivity.class );
+                intent.putExtra("test", "test");
                 startActivity(intent);
             }
         });
