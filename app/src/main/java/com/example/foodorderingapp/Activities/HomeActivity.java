@@ -40,6 +40,15 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        //anhpd35
+        orderDetailBtn = findViewById(R.id.btn_OrderDetail);
+        orderDetailBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this,CartActivity.class );
+                startActivity(intent);
+            }
+        });
 
     }
 

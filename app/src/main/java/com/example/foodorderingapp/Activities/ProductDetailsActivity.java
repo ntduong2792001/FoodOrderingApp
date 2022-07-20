@@ -5,12 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.foodorderingapp.Models.Category;
+import com.example.foodorderingapp.Models.OrderDetail;
 import com.example.foodorderingapp.Models.Products;
 import com.example.foodorderingapp.R;
 import com.google.firebase.database.DataSnapshot;
@@ -19,13 +22,19 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+
 public class ProductDetailsActivity extends AppCompatActivity {
 
-    TextView productName, productPrice, productDescription, categoryName, productType;
-    ImageView productImage, backImage;
+    public static final String MyPREFERENCES = "listOrderDetail" ;
+    TextView productName, productPrice, productDescription, categoryName, productType, quantityTxt;
+    ImageView productImage, backImage, minusBtn, plusBtn;
+    Button addToCartBtn;
     Products p;
     Category c;
     Context context;
+    SharedPreferences sharedpreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +45,10 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Product").child(productId);
+        quantityTxt = findViewById(R.id.quantityTxt);
+        minusBtn = findViewById(R.id.minusBtn);
+        plusBtn = findViewById(R.id.plusBtn);
+        addToCartBtn = findViewById(R.id.addToCartBtn);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -46,6 +59,38 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+
+        minusBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(Integer.parseInt(quantityTxt.getText().toString())==1) return;
+                quantityTxt.setText(String.valueOf(Integer.parseInt(quantityTxt.getText().toString())-1));
+            }
+        });
+
+        plusBtn.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                quantityTxt.setText(String.valueOf(Integer.parseInt(quantityTxt.getText().toString())+1));
+            }
+        }));
+
+        addToCartBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+                Bundle b = new Bundle();
+                OrderDetail od = new OrderDetail();
+                od.setProductId(p.getProductId());
+                od.setQuantity(Integer.parseInt(quantityTxt.getText().toString()));
+                ArrayList<OrderDetail> listOrderDetail = (ArrayList<OrderDetail>) b.getSerializable("cart");
+                if(listOrderDetail==null){
+                    listOrderDetail = new ArrayList<OrderDetail>();
+                }
+                listOrderDetail.add(od);
+                b.putSerializable("cart", (Serializable) listOrderDetail);
             }
         });
     }
@@ -92,4 +137,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
             }
         });
     }
+
+    //anhpd add
+
 }
