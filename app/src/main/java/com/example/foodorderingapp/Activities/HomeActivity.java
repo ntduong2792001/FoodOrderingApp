@@ -3,6 +3,7 @@ package com.example.foodorderingapp.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -26,7 +27,7 @@ public class HomeActivity extends AppCompatActivity {
         bindElements();
         bindElementToActivity();
         auth = FirebaseAuth.getInstance();
-        if(auth.getCurrentUser()==null){
+        if(auth.getCurrentUser()==null  ){
             Intent intent = new Intent(HomeActivity.this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             finish();
@@ -34,7 +35,14 @@ public class HomeActivity extends AppCompatActivity {
         else{
             tvGreet.setText("Hello, "+ auth.getCurrentUser().getDisplayName());
             Uri photo = auth.getCurrentUser().getPhotoUrl();
+            if(photo!= null)
             Picasso.with(this).load(photo).into(avatar);
+            else{
+                String uri = "@drawable/profile";
+                int imageResourse = getResources().getIdentifier(uri,null,getPackageName());
+                Drawable drawable = getResources().getDrawable(imageResourse);
+                avatar.setImageDrawable(drawable);
+            }
         }
 
 
