@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/PRM/Code example/FoodOrderingApp/app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="..\:/PRM/Project/FoodApp/FoodOrderingApp/app/src/main/res/drawable/app_icon.xml" value="0.2555" />
         <entry key="..\:/PRM/Project/FoodApp/FoodOrderingApp/app/src/main/res/drawable/arrow_forward.xml" value="0.1" />
         <entry key="..\:/PRM/Project/FoodApp/FoodOrderingApp/app/src/main/res/drawable/button_bg.xml" value="0.1" />
@@ -10,6 +11,7 @@
         <entry key="..\:/PRM/Project/FoodApp/FoodOrderingApp/app/src/main/res/drawable/favorite.xml" value="0.1" />
         <entry key="..\:/PRM/Project/FoodApp/FoodOrderingApp/app/src/main/res/drawable/ic_back.xml" value="0.1" />
         <entry key="..\:/PRM/Project/FoodApp/FoodOrderingApp/app/src/main/res/drawable/vie_bg.xml" value="0.213" />
+        <entry key="..\:/PRM/Project/FoodApp/FoodOrderingApp/app/src/main/res/layout/activity_cart.xml" value="0.2350597609561753" />
         <entry key="..\:/PRM/Project/FoodApp/FoodOrderingApp/app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="..\:/PRM/Project/FoodApp/FoodOrderingApp/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/PRM/Project/FoodApp/FoodOrderingApp/app/src/main/res/layout/activity_main.xml" value="0.264" />
