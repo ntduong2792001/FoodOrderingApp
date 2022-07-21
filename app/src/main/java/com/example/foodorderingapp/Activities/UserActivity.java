@@ -46,10 +46,10 @@ public class UserActivity extends AppCompatActivity {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                            v.setBackgroundColor(Color.WHITE);
+                        v.setBackgroundColor(Color.WHITE);
                     }
-                },50);
-                Intent intent = new Intent(UserActivity.this,ProfileDetail.class);
+                }, 50);
+                Intent intent = new Intent(UserActivity.this, ProfileDetail.class);
                 startActivity(intent);
                 finish();
             }
@@ -66,32 +66,31 @@ public class UserActivity extends AppCompatActivity {
                 FirebaseAuth mFirebaseAuth = FirebaseAuth.getInstance();
                 mFirebaseAuth.signOut();
 
-                Intent intent = new Intent(UserActivity.this,MainActivity.class);
+                Intent intent = new Intent(UserActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
+
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                GoogleSignInAccount googleSignInAccount = GoogleSignIn.getLastSignedInAccount(UserActivity.this);
+
+                progressDialog.show();
+
+                String id = user == null ? googleSignInAccount.getId() : user.getUid();
+                FirebaseDatabase.getInstance().getReference("Users/" + id).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                        User readUser = snapshot.getValue(User.class);
+                        name.setText(readUser.getFullName());
+                        //Glide.with(UserActivity.this).load(readUser.getImageUrl()).error(R.drawable.avatar_default).into(imgProfile);
+                        progressDialog.dismiss();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
             }
         });
-
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        GoogleSignInAccount googleSignInAccount = GoogleSignIn.getLastSignedInAccount(UserActivity.this);
-
-        progressDialog.show();
-
-        String id = user== null ? googleSignInAccount.getId(): user.getUid();
-        FirebaseDatabase.getInstance().getReference("Users/"+id).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                User readUser = snapshot.getValue(User.class);
-                name.setText(readUser.getFullName());
-                //Glide.with(UserActivity.this).load(readUser.getImageUrl()).error(R.drawable.avatar_default).into(imgProfile);
-                progressDialog.dismiss();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
-}
+    }}
