@@ -44,21 +44,14 @@ public class HomeActivity extends AppCompatActivity {
          }
         else{
             tvGreet.setText("Hello, "+ auth.getCurrentUser().getDisplayName());
-            Uri photo = auth.getCurrentUser().getPhotoUrl();
-            if(photo!= null)
-            Picasso.with(this).load(photo).into(avatar);
-            else{
-                String uri = "@drawable/profile";
-                int imageResourse = getResources().getIdentifier(uri,null,getPackageName());
-                Drawable drawable = getResources().getDrawable(imageResourse);
-                avatar.setImageDrawable(drawable);
-            }
+           
+
         }
 
 
 
-        btnUser = findViewById(R.id.btnUser);
-        btnUser.setOnClickListener(new View.OnClickListener() {
+
+        avatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this,UserActivity.class );
@@ -66,7 +59,7 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        //anhpd35
+
         orderDetailBtn = findViewById(R.id.btn_OrderDetail);
         orderDetailBtn.setOnClickListener(new View.OnClickListener() {
             @Override
