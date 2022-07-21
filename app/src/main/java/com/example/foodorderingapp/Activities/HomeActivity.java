@@ -1,5 +1,6 @@
 package com.example.foodorderingapp.Activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -14,9 +15,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.foodorderingapp.R;
+import com.example.foodorderingapp.User;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.Map;
@@ -36,17 +44,24 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         bindElements();
         bindElementToActivity();
-        auth = FirebaseAuth.getInstance();
-        if(auth.getCurrentUser()==null  ){
-            Intent intent = new Intent(HomeActivity.this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
-            finish();
-         }
-        else{
-            tvGreet.setText("Hello, "+ auth.getCurrentUser().getDisplayName());
-           
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        GoogleSignInAccount googleSignInAccount = GoogleSignIn.getLastSignedInAccount(HomeActivity.this);
+        String id = user== null ? googleSignInAccount.getId(): user.getUid();
+        FirebaseDatabase.getInstance().getReference("Users/"+id).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-        }
+                User readUser = snapshot.getValue(User.class);
+                tvGreet.setText("Hello, "+readUser.getFullName());
+                //Glide.with(UserActivity.this).load(readUser.getImageUrl()).error(R.drawable.avatar_default).into(imgProfile);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
 
 
