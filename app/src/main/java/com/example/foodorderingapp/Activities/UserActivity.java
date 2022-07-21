@@ -15,7 +15,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
+//import com.bumptech.glide.Glide
 import com.example.foodorderingapp.Models.User;
 import com.example.foodorderingapp.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -84,7 +84,7 @@ public class UserActivity extends AppCompatActivity {
 
                 User readUser = snapshot.getValue(User.class);
                 name.setText(readUser.getFullName());
-                Glide.with(UserActivity.this).load(readUser.getImageUrl()).error(R.drawable.avatar_default).into(imgProfile);
+                //Glide.with(UserActivity.this).load(readUser.getImageUrl()).error(R.drawable.avatar_default).into(imgProfile);
                 progressDialog.dismiss();
             }
 

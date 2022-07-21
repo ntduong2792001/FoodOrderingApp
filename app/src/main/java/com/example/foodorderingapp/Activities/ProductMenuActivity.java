@@ -39,7 +39,25 @@ public class ProductMenuActivity extends AppCompatActivity {
         bindingView();
         bindingAction();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-
+        database.getReference("Product").child("1").child("productImageUrl").setValue(R.drawable.pd_pizza_lap_xuong2);
+        database.getReference("Product").child("2").child("productImageUrl").setValue(R.drawable.pd_okonomiyaki);
+        database.getReference("Product").child("3").child("productImageUrl").setValue(R.drawable.pd_ocean_mania);
+        database.getReference("Product").child("4").child("productImageUrl").setValue(R.drawable.pd_pizzaminsea);
+        database.getReference("Product").child("5").child("productImageUrl").setValue(R.drawable.pd_pasta_hai_san);
+        database.getReference("Product").child("6").child("productImageUrl").setValue(R.drawable.pd_pasta_bo_bam);
+        database.getReference("Product").child("7").child("productImageUrl").setValue(R.drawable.pd_sprite);
+        database.getReference("Product").child("8").child("productImageUrl").setValue(R.drawable.pd_coke);
+        database.getReference("Product").child("9").child("productImageUrl").setValue(R.drawable.pd_fanta);
+        database.getReference("Product").child("10").child("productImageUrl").setValue(R.drawable.pd_canh_ga_bbq_kieu_my);
+        database.getReference("Product").child("11").child("productImageUrl").setValue(R.drawable.pd_ga_khong_xuong_bbq);
+        database.getReference("Product").child("12").child("productImageUrl").setValue(R.drawable.pd_xuc_xich_xong_khoi);
+        database.getReference("Product").child("13").child("productImageUrl").setValue(R.drawable.pd_khoai_tay_pho_mai);
+        database.getReference("Product").child("14").child("productImageUrl").setValue(R.drawable.pd_banh_mi_pho_mai);
+        database.getReference("Product").child("15").child("productImageUrl").setValue(R.drawable.pd_banh_mi_bo_toi);
+        database.getReference("Product").child("16").child("productImageUrl").setValue(R.drawable.pd_signature_salad);
+        database.getReference("Product").child("17").child("productImageUrl").setValue(R.drawable.pd_caesars_salad_300);
+        database.getReference("Product").child("18").child("productImageUrl").setValue(R.drawable.pd_mcroyal_with_cheese);
+        database.getReference("Product").child("19").child("productImageUrl").setValue(R.drawable.pd_bigmac);
         DatabaseReference myRef2 = database.getReference("Category");
         myRef2.addValueEventListener(new ValueEventListener() {
             @Override

@@ -10,17 +10,26 @@ import android.widget.Button;
 import com.example.foodorderingapp.R;
 
 public class HomeActivity extends AppCompatActivity {
-    Button btnUser;
+    Button btnUser, btnProuct;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
         btnUser = findViewById(R.id.btnUser);
+        btnProuct = findViewById(R.id.btnProduct);
         btnUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this,UserActivity.class );
+                startActivity(intent);
+            }
+        });
+
+        btnProuct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this,ProductMenuActivity.class );
                 startActivity(intent);
             }
         });

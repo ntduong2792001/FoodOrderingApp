@@ -123,7 +123,7 @@ public class LoginTabFragment extends Fragment {
     }
 
     private void sendUserToNextActivity(){
-        Intent intent = new Intent(context, ProductMenuActivity.class);
+        Intent intent = new Intent(context, HomeActivity.class);
         startActivity(intent);
     }
 }
