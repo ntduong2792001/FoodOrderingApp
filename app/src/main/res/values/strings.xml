@@ -8,4 +8,5 @@
     <string name="food_ordering">Food Ordering</string>
     <string name="order_details">Order Details</string>
     <string name="profile">Profile</string>
+    <string name="show_order">Show Order</string>
 </resources>

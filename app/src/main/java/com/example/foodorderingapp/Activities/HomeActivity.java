@@ -28,7 +28,7 @@ import com.squareup.picasso.Picasso;
 public class HomeActivity extends AppCompatActivity {
     Button btnUser;
     TextView tvGreet; ImageView avatar;
-    Button profileBtn, orderDetailBtn, foodOrderingBtn;
+    Button profileBtn, orderDetailBtn, foodOrderingBtn,showOrder;
     private FirebaseAuth auth;
     private DatabaseReference mDatabase;
 
@@ -84,9 +84,16 @@ public class HomeActivity extends AppCompatActivity {
         profileBtn = findViewById(R.id.btn_Profile);
         orderDetailBtn = findViewById(R.id.btn_OrderDetail);
         foodOrderingBtn = findViewById(R.id.btn_foodOrdering);
+        showOrder = findViewById(R.id.btn_foodOrder);
     }
 
     public void bindElementToActivity(){
+        showOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this,ShowOrderActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK| Intent.FLAG_ACTIVITY_NEW_TASK));
+            }
+        });
         foodOrderingBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
