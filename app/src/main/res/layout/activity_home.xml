@@ -8,12 +8,85 @@
     tools:context=".Activities.HomeActivity">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Home Activity"
+        android:id="@+id/tvGreet"
+        android:layout_width="180dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="44dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="Hello, User!"
+        android:textColor="@android:color/background_dark"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/avatar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="311dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="52dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/profile" />
+
+    <Button
+        android:id="@+id/btn_Profile"
+        android:layout_width="335dp"
+        android:layout_height="39dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="148dp"
+        android:background="@drawable/button_bg"
+        android:text="@string/profile"
+        android:textAllCaps="false"
+        android:textColor="#212121"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_OrderDetail"
+        app:layout_constraintVertical_bias="0.457" />
+
+    <Button
+        android:id="@+id/btn_OrderDetail"
+        android:layout_width="338dp"
+        android:layout_height="45dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="284dp"
+        android:background="@drawable/button_bg"
+        android:text="@string/order_details"
+        android:textAllCaps="false"
+        android:textColor="#212121"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_foodOrdering"
+        app:layout_constraintVertical_bias="0.611" />
+
+    <Button
+        android:id="@+id/btn_foodOrdering"
+        android:layout_width="337dp"
+        android:layout_height="46dp"
+        android:layout_below="@id/btn_OrderDetail"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="176dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="436dp"
+        android:background="@drawable/button_bg"
+        android:text="@string/food_ordering"
+        android:textAllCaps="false"
+        android:textColor="#212121"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

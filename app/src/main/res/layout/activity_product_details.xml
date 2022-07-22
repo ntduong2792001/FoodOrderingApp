@@ -109,16 +109,16 @@
             app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
         <ImageView
-            android:id="@+id/imageView8"
+            android:id="@+id/minusBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textView13"
-            app:layout_constraintTop_toTopOf="@+id/button2"
+            app:layout_constraintTop_toTopOf="@+id/addToCartBtn"
             app:srcCompat="@drawable/ic_minus" />
 
         <TextView
-            android:id="@+id/textView14"
+            android:id="@+id/quantityTxt"
             android:layout_width="50dp"
             android:layout_height="53dp"
             android:fontFamily="sans-serif-medium"
@@ -126,22 +126,22 @@
             android:text="1"
             android:textColor="@android:color/background_dark"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView8"
-            app:layout_constraintStart_toEndOf="@+id/imageView8"
-            app:layout_constraintTop_toTopOf="@+id/imageView8"
+            app:layout_constraintBottom_toBottomOf="@+id/minusBtn"
+            app:layout_constraintStart_toEndOf="@+id/minusBtn"
+            app:layout_constraintTop_toTopOf="@+id/minusBtn"
             app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
-            android:id="@+id/imageView9"
+            android:id="@+id/plusBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@+id/textView14"
-            app:layout_constraintStart_toEndOf="@+id/textView14"
-            app:layout_constraintTop_toTopOf="@+id/textView14"
+            app:layout_constraintBottom_toBottomOf="@+id/quantityTxt"
+            app:layout_constraintStart_toEndOf="@+id/quantityTxt"
+            app:layout_constraintTop_toTopOf="@+id/quantityTxt"
             app:srcCompat="@drawable/ic_plus" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/addToCartBtn"
             android:layout_width="180dp"
             android:layout_height="80dp"
             android:background="@drawable/detail_page_cart_button_bg"
@@ -168,6 +168,6 @@
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ocean_mania" />
+        app:srcCompat="@drawable/pd_ocean_mania" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
