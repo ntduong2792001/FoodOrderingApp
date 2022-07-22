@@ -5,12 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.foodorderingapp.Models.Category;
+import com.example.foodorderingapp.Models.OrderDetail;
 import com.example.foodorderingapp.Models.Products;
 import com.example.foodorderingapp.R;
 import com.google.firebase.database.DataSnapshot;
@@ -18,14 +21,25 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class ProductDetailsActivity extends AppCompatActivity {
 
-    TextView productName, productPrice, productDescription, categoryName, productType;
-    ImageView productImage, backImage;
+    public static final String MyPREFERENCES = "listOrderDetail" ;
+    TextView productName, productPrice, productDescription, categoryName, productType, quantityTxt;
+    ImageView productImage, backImage, minusBtn, plusBtn;
+    Button addToCartBtn;
     Products p;
     Category c;
     Context context;
+    SharedPreferences sharedpreferences;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +50,10 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Product").child(productId);
+        quantityTxt = findViewById(R.id.quantityTxt);
+        minusBtn = findViewById(R.id.minusBtn);
+        plusBtn = findViewById(R.id.plusBtn);
+        addToCartBtn = findViewById(R.id.addToCartBtn);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -46,6 +64,47 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+
+        minusBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(Integer.parseInt(quantityTxt.getText().toString())==1) return;
+                quantityTxt.setText(String.valueOf(Integer.parseInt(quantityTxt.getText().toString())-1));
+            }
+        });
+
+        plusBtn.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                quantityTxt.setText(String.valueOf(Integer.parseInt(quantityTxt.getText().toString())+1));
+            }
+        }));
+
+        addToCartBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                Bundle b = new Bundle();
+                OrderDetail od = new OrderDetail();
+                od.setProductId(p.getProductId());
+                od.setQuantity(Integer.parseInt(quantityTxt.getText().toString()));
+                SharedPreferences sharedPreferences = getSharedPreferences(MainActivity.MyPREFERENCES, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                Gson gson = new Gson();
+                String s = sharedPreferences.getString("cart","");
+                ArrayList<OrderDetail> lo = gson.fromJson(s, ArrayList.class);
+                lo.add(od);
+                editor.remove("cart");
+                editor.putString("cart", gson.toJson(lo));
+                editor.commit();
+
+
+
+                Intent i = new Intent(ProductDetailsActivity.this,HomeActivity.class);
+                startActivity(i);
             }
         });
     }
@@ -92,4 +151,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
             }
         });
     }
+
+    //anhpd add
+
 }
