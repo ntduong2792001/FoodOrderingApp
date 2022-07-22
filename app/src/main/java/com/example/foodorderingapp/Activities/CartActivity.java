@@ -51,6 +51,7 @@ public class CartActivity extends AppCompatActivity {
     ArrayList<Products> lp  = new ArrayList<>();
     ArrayList<Order> lor = new ArrayList<>();
     ArrayList<Products> listOrderView = new ArrayList<>();
+    Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -125,6 +126,8 @@ public class CartActivity extends AppCompatActivity {
                 String gsonList = gson.toJson(new ArrayList<OrderDetail>());
                 sharedPreferences.edit().putString("cart", gsonList);
                 sharedPreferences.edit().commit();
+                context = view.getContext();
+                Toast.makeText(context, "Checkout successfully", Toast.LENGTH_SHORT).show();
             }
         });
         setProdItemRecycler(listOrderView);
