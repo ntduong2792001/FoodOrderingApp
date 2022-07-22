@@ -136,11 +136,7 @@ public class ProfileDetail extends AppCompatActivity {
         });
     }
 
-//    private void updateUser(User u){
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//        String userUid = user.getUid();
-//        FirebaseDatabase.getInstance().getReference("Users").child(userUid).setValue(u);
-//    }
+
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -153,7 +149,7 @@ public class ProfileDetail extends AppCompatActivity {
                 Uri selectedImageUri = data.getData();
                 imgUri = selectedImageUri;
                 if (null != selectedImageUri) {
-                    // update the preview image in the layout
+
 //
                     Glide.with(ProfileDetail.this).load(selectedImageUri).error(R.drawable.avatar_default).into(imgProfile);
                 }
